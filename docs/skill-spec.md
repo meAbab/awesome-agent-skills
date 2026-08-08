@@ -1,78 +1,78 @@
-# SKILL.md 规范文档 / SKILL.md Specification
+# SKILL.md Specification
 
-本文档定义了 Agent Skill 的标准规范，帮助开发者创建兼容的 Skills。
+This document defines the standard specifications of Agent Skills to help developers create compatible Skills.
 
 This document defines the standard specification for Agent Skills to help developers create compatible Skills.
 
 ---
 
-## 目录 / Table of Contents
+## Table of Contents
 
-- [文件结构](#文件结构--file-structure)
-- [Frontmatter 规范](#frontmatter-规范--frontmatter-specification)
-- [内容结构](#内容结构--content-structure)
-- [命名规范](#命名规范--naming-conventions)
-- [平台兼容性](#平台兼容性--platform-compatibility)
-- [最佳实践](#最佳实践--best-practices)
+- [File Structure](#file-structure)
+- [Frontmatter Specification](#frontmatter-specification)
+- [Content Structure](#content-structure)
+- [Naming Conventions](#naming-conventions)
+- [Platform Compatibility](#platform-compatibility)
+- [Best Practices](#best-practices)
 
 ---
 
-## 文件结构 / File Structure
+## File Structure
 
-一个标准的 Skill 目录结构如下：
+A standard Skill directory structure is as follows:
 
 ```
 my-skill/
-├── SKILL.md              # 必需 / Required
-├── README.md             # 可选 / Optional - 人类可读的说明
-├── scripts/              # 可选 / Optional
+├── SKILL.md # Required
+├── README.md # Optional - human-readable description
+├── scripts/ # Optional
 │   ├── analyze.py
 │   └── helper.sh
-├── templates/            # 可选 / Optional
+├── templates/ # Optional
 │   └── output-template.md
-├── examples/             # 可选 / Optional
+├── examples/ # Optional
 │   └── sample-output.md
-└── resources/            # 可选 / Optional
+└── resources/ # Optional
     └── config.json
 ```
 
-### 文件说明 / File Descriptions
+### File Descriptions
 
-| 文件/目录 | 必需 | 说明 |
+| File/Directory | Required | Description |
 |-----------|------|------|
-| `SKILL.md` | ✅ | 核心指令文件，AI Agent 读取此文件了解如何使用 Skill |
-| `README.md` | ❌ | 人类可读的使用说明和安装指南 |
-| `scripts/` | ❌ | 可执行脚本，供 AI Agent 调用 |
-| `templates/` | ❌ | 输出模板，定义结果格式 |
-| `examples/` | ❌ | 使用示例和样例输出 |
-| `resources/` | ❌ | 其他资源文件（配置、数据等） |
+| `SKILL.md` | ✅ | Core command file, AI Agent reads this file to learn how to use Skill |
+| `README.md` | ❌ | Human-readable instructions and installation guide |
+| `scripts/` | ❌ | Executable script for AI Agent to call |
+| `templates/` | ❌ | Output template, define result format |
+| `examples/` | ❌ | Usage examples and sample output |
+| `resources/` | ❌ | Other resource files (configuration, data, etc.) |
 
 ---
 
-## Frontmatter 规范 / Frontmatter Specification
+## Frontmatter Specification
 
-SKILL.md 文件必须以 YAML frontmatter 开头，定义 Skill 的元数据。
+The SKILL.md file must start with YAML frontmatter, which defines the metadata of the Skill.
 
-### 必需字段 / Required Fields
+### Required Fields
 
-| 字段 | 类型 | 说明 | 示例 |
+| Field | Type | Description | Example |
 |------|------|------|------|
-| `name` | string | Skill 的唯一标识符，小写字母和连字符 | `code-review` |
-| `description` | string | 简短的英文描述（建议 < 160 字符） | `Smart code review skill...` |
+| `name` | string | Unique identifier for the Skill, lowercase letters and hyphens | `code-review` |
+| `description` | string | Short English description (< 160 characters recommended) | `Smart code review skill...` |
 
-### 可选字段 / Optional Fields
+### Optional Fields
 
-| 字段 | 类型 | 说明 | 示例 |
+| Field | Type | Description | Example |
 |------|------|------|------|
-| `license` | string | 许可证标识符 | `MIT`, `CC0-1.0`, `Apache-2.0` |
-| `version` | string | 语义化版本号 | `1.0.0` |
-| `author` | string | 作者或组织名称 | `Your Name` |
-| `homepage` | string | 项目主页 URL | `https://github.com/...` |
-| `tags` | array | 分类标签 | `[code, review, quality]` |
-| `platforms` | array | 支持的平台 | `[cursor, claude, copilot]` |
-| `requires` | array | 依赖的其他 Skills | `[git-helper]` |
+| `license` | string | License identifier | `MIT`, `CC0-1.0`, `Apache-2.0` |
+| `version` | string | Semantic version number | `1.0.0` |
+| `author` | string | Author or organization name | `Your Name` |
+| `homepage` | string | Project homepage URL | `https://github.com/...` |
+| `tags` | array | Category tags | `[code, review, quality]` |
+| `platforms` | array | Supported platforms | `[cursor, claude, copilot]` |
+| `requires` | array | Other dependent Skills | `[git-helper]` |
 
-### 完整示例 / Complete Example
+### Complete Example
 
 ```yaml
 ---
@@ -95,109 +95,109 @@ platforms:
 
 ---
 
-## 内容结构 / Content Structure
+## Content Structure
 
-SKILL.md 的 Markdown 内容应包含以下部分：
+The Markdown content of SKILL.md should contain the following sections:
 
-### 必需章节 / Required Sections
+### Required Sections
 
-#### 1. 标题和描述 / Title and Description
+#### 1. Title and Description
 
 ```markdown
 # Skill Name
 
-> 简短描述（中英双语更佳）
+> Short description (Bilingual Chinese and English is better)
 >
 > Short description in English
 ```
 
 #### 2. When to Use
 
-描述 AI Agent 应该在什么情况下激活此 Skill：
+Describes the circumstances under which the AI Agent should activate this Skill:
 
 ```markdown
 ## When to Use
 
-当用户请求以下操作时使用此 skill：
-- 触发条件 1
-- 触发条件 2
-- 触发条件 3
+This skill is used when the user requests the following operation:
+- Trigger condition 1
+- Trigger condition 2
+- Trigger condition 3
 ```
 
 #### 3. Instructions
 
-详细的使用说明，告诉 AI Agent 如何执行任务：
+Detailed usage instructions tell the AI Agent how to perform the task:
 
 ```markdown
 ## Instructions
 
-### 步骤 1
-详细说明...
+### Step 1
+Detailed instructions...
 
-### 步骤 2
-详细说明...
+### Step 2
+Detailed instructions...
 ```
 
-### 推荐章节 / Recommended Sections
+### Recommended Sections
 
 #### 4. Examples
 
-输入输出示例，帮助 AI 理解预期行为：
+Input and output examples to help AI understand expected behavior:
 
 ```markdown
 ## Examples
 
-### 输入 / Input
-[示例输入]
+### Input
+[Example input]
 
-### 输出 / Output
-[示例输出]
+### Output
+[Example output]
 ```
 
-#### 5. Configuration（如需要）
+#### 5. Configuration (if required)
 
 ```markdown
 ## Configuration
 
-可配置的选项和参数...
+Configurable options and parameters...
 ```
 
 ---
 
-## 命名规范 / Naming Conventions
+## Naming Conventions
 
-### Skill 名称
+### Skill Name
 
-- 使用小写字母
-- 单词之间用连字符 `-` 分隔
-- 简洁且描述性强
-- 避免使用通用词汇
+- Use lowercase letters
+- Separate words with hyphens `-`
+- Concise and descriptive
+- Avoid using common words
 
-✅ 正确示例：
+✅ Correct example:
 - `code-review`
 - `git-commit-helper`
 - `api-doc-generator`
 - `unit-test-generator`
 
-❌ 错误示例：
-- `CodeReview`（不要使用驼峰命名）
-- `code_review`（不要使用下划线）
-- `my-skill`（太通用）
-- `helper`（不够描述性）
+❌ Bad example:
+- `CodeReview` (do not use camel case)
+- `code_review` (don't use underscores)
+- `my-skill` (too generic)
+- `helper` (not descriptive enough)
 
-### 文件命名
+### File naming
 
-- Skill 核心文件必须命名为 `SKILL.md`（大写）
-- 脚本文件使用小写字母和连字符或下划线
-- 模板文件使用描述性名称
+- Skill core files must be named `SKILL.md` (uppercase)
+- Script files use lowercase letters and hyphens or underscores
+- Template files use descriptive names
 
 ---
 
-## 平台兼容性 / Platform Compatibility
+## Platform Compatibility
 
-### 目录位置 / Directory Locations
+### Directory Locations
 
-| 平台 | 全局目录 | 项目目录 |
+| Platform | Global Directory | Project Directory |
 |------|----------|----------|
 | Cursor | `~/.cursor/skills/` | `.cursor/skills/` |
 | Claude Code | `~/.claude/skills/` | `.claude/skills/` |
@@ -205,110 +205,110 @@ SKILL.md 的 Markdown 内容应包含以下部分：
 | Windsurf | `~/.windsurf/skills/` | `.windsurf/skills/` |
 | OpenAI Codex | `~/.codex/skills/` | `.codex/skills/` |
 
-### 兼容性注意事项
+### Compatibility Notes
 
-1. **文件编码**: 使用 UTF-8 编码
-2. **换行符**: 使用 LF（`\n`），避免 CRLF
-3. **脚本权限**: 确保脚本有执行权限（`chmod +x`）
-4. **路径引用**: 使用相对路径引用 Skill 内的文件
+1. **File encoding**: Use UTF-8 encoding
+2. **Line break**: Use LF (`\n`), avoid CRLF
+3. **Script permission**: Make sure the script has execution permission (`chmod +x`)
+4. **Path Reference**: Use relative paths to reference files within the Skill
 
 ---
 
-## 最佳实践 / Best Practices
+## Best Practices
 
-### 1. 清晰的触发条件
+### 1. Clear trigger conditions
 
-明确定义何时使用此 Skill，避免模糊的描述：
+Clearly define when to use this Skill and avoid vague descriptions:
 
 ```markdown
 ## When to Use
 
-✅ 好的示例：
-- 当用户说 "审查这段代码" 时
-- 当用户请求 "帮我检查代码质量" 时
+✅ Good examples:
+- when the user says "review this code"
+- when the user asks "check the code quality for me"
 
-❌ 不好的示例：
-- 当需要帮助时
-- 在编程时
+❌ bad examples:
+- when you need help
+- when programming
 ```
 
-### 2. 分步骤的指令
+### 2. Step-by-step instructions
 
-将复杂任务分解为清晰的步骤：
+Break down complex tasks into clear steps:
 
 ```markdown
 ## Instructions
 
-### 第一步：分析输入
-- 确定编程语言
-- 识别代码结构
+### Step 1: Analyze the input
+- Determine the programming language
+- Identify the code structure
 
-### 第二步：执行检查
-- 检查语法错误
-- 检查逻辑问题
+### Step 2: Perform checks
+- Check for syntax errors
+- Check for logic problems
 
-### 第三步：生成报告
-- 使用标准格式
-- 包含所有发现
+### Step 3: Generate report
+- uses the standard format
+- contains all findings
 ```
 
-### 3. 提供示例
+### 3. Provide an example
 
-示例帮助 AI 理解预期的输入和输出格式：
+Examples help the AI understand expected input and output formats:
 
 ```markdown
 ## Examples
 
-### 示例 1：简单函数
-**输入**:
+### Example 1: Simple function
+**Input**:
 ```python
 def add(a, b):
     return a + b
 ```
 
-**输出**:
-[预期的审查结果]
+**Output**:
+[Expected review results]
 ```
 
-### 4. 使用模板
+### 4. Use template
 
-如果输出有固定格式，提供模板文件并在 Instructions 中引用：
+If the output has a fixed format, provide a template file and reference it in Instructions:
 
 ```markdown
 ## Instructions
 
-使用 `templates/report.md` 中的模板格式化输出。
+Use the template in `templates/report.md` to format the output.
 ```
 
-### 5. 支持双语
+### 5. Support bilingual
 
-为了获得更广泛的用户群，建议提供中英双语内容：
+In order to gain a wider user base, it is recommended to provide bilingual content in Chinese and English:
 
 ```markdown
-# Code Review / 代码审查
+# Code Review
 
-> 智能代码审查技能
+> Intelligent code review skills
 >
 > Smart code review skill
 ```
 
 ---
 
-## 版本兼容性 / Version Compatibility
+## Version Compatibility
 
-本规范版本：`1.0.0`
+This specification version: `1.0.0`
 
-### 变更历史
+### Change history
 
-| 版本 | 日期 | 变更 |
+| Version | Date | Changes |
 |------|------|------|
-| 1.0.0 | 2025-01 | 初始版本 |
+| 1.0.0 | 2025-01 | Initial version |
 
 ---
 
-## 参考资源 / References
+## References
 
-- [Agent Skills 官方规范](https://skill.md/)
-- [agentskills.io 规范文档](https://agentskills.io/specification)
-- [Anthropic Skills 仓库](https://github.com/anthropics/skills)
-- [如何创建 Skill](how-to-create.md)
+- [Official Agent Skills Specification](https://skill.md/)
+- [agentskills.io Specification](https://agentskills.io/specification)
+- [Anthropic Skills Repository](https://github.com/anthropics/skills)
+- [How to Create a Skill](how-to-create.md)

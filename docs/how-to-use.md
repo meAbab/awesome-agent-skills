@@ -1,10 +1,10 @@
-# 如何使用 Agent Skills
+# How to use Agent Skills
 
-本指南介绍如何在不同平台上安装和使用 Agent Skills。
+This guide describes how to install and use Agent Skills on different platforms.
 
-## 支持的平台
+## Supported platforms
 
-| 平台 | 支持状态 | 全局目录 | 项目目录 |
+| Platform | Support status | Global directory | Project directory |
 |------|---------|---------|---------|
 | Cursor | ✅ | `~/.cursor/skills/` | `.cursor/skills/` |
 | Claude Code | ✅ | `~/.claude/skills/` | `.claude/skills/` |
@@ -12,80 +12,80 @@
 | Windsurf | ✅ | `~/.windsurf/skills/` | `.windsurf/skills/` |
 | OpenAI Codex | ✅ | `~/.codex/skills/` | `.codex/skills/` |
 
-## 安装方式
+## Installation method
 
-### 方式一：手动安装
+### Method 1: Manual installation
 
-1. 下载或克隆 skill 仓库
-2. 将 skill 文件夹复制到对应目录
+1. Download or clone the skill repository
+2. Copy the skill folder to the corresponding directory
 
 ```bash
-# 示例：安装 code-review skill 到 Cursor
+# Example: Install code-review skill to Cursor
 git clone https://github.com/example/code-review-skill.git
 cp -r code-review-skill ~/.cursor/skills/
 ```
 
-### 方式二：使用 Git 子模块
+### Method 2: Use Git Submodule
 
-适合项目级别的 skills：
+is suitable for project-level skills:
 
 ```bash
-# 在项目根目录
+# In the project root directory
 mkdir -p .cursor/skills
 cd .cursor/skills
 git submodule add https://github.com/example/code-review-skill.git
 ```
 
-### 方式三：使用 Skill 安装器（如果可用）
+### Method 3: Use the Skill installer (if available)
 
-某些平台提供内置的 skill 安装功能：
+Some platforms provide built-in skill installation functions:
 
 ```bash
 # Codex CLI
 codex skill install code-review
 
-# 或使用对话方式
-# "请帮我安装 code-review skill"
+# Or use the conversation mode
+# "Please help me install code-review skill"
 ```
 
-## 全局 vs 项目级别
+## Global vs project level
 
-### 全局 Skills
+### Global Skills
 
-- 位置：`~/.cursor/skills/` 或 `~/.codex/skills/`
-- 对所有项目生效
-- 适合通用工具类 skills
+- Position: `~/.cursor/skills/` or `~/.codex/skills/`
+- Valid for all projects
+- Suitable for general tool skills
 
-### 项目级 Skills
+### Project-level Skills
 
-- 位置：`.cursor/skills/` 或 `.codex/skills/`（在项目根目录）
-- 仅对当前项目生效
-- 适合项目特定的 skills
-- 可以提交到 Git，与团队共享
+- Location: `.cursor/skills/` or `.codex/skills/` (in the project root directory)
+- Only effective for the current project
+- Suitable for project-specific skills
+- Can be committed to Git and shared with the team
 
-## 验证安装
+## Verify installation
 
-安装后，可以通过以下方式验证：
+Once installed, it can be verified by:
 
-### 1. 检查目录
+### 1. Check the directory
 
 ```bash
 ls ~/.cursor/skills/
-# 应该看到你安装的 skill 文件夹
+# You should see the skill folder you installed
 ```
 
-### 2. 测试使用
+### 2. Test using
 
-在 AI 对话中尝试触发 skill：
+and try to trigger the skill in the AI conversation:
 
 ```
-用户：请帮我审查这段代码
-AI：[如果 code-review skill 安装正确，会按照 skill 的格式输出]
+User: Please help me review this code
+AI: [If the code-review skill is installed correctly, it will be output in the skill's format]
 ```
 
-## 管理 Skills
+## Manage Skills
 
-### 查看已安装的 Skills
+### View installed Skills
 
 ```bash
 # Cursor
@@ -95,50 +95,50 @@ ls ~/.cursor/skills/
 ls ~/.codex/skills/
 ```
 
-### 更新 Skill
+### Update Skill
 
 ```bash
 cd ~/.cursor/skills/code-review-skill
 git pull
 ```
 
-### 删除 Skill
+### Delete Skill
 
 ```bash
 rm -rf ~/.cursor/skills/code-review-skill
 ```
 
-## 优先级说明
+## Priority Description
 
-当同名 skill 同时存在于全局和项目目录时：
+When the skill with the same name exists in both the global and project directories:
 
-1. **项目级优先**：项目目录的 skill 优先使用
-2. **可覆盖**：项目可以用自定义版本覆盖全局 skill
+1. **Project level priority**: The skill in the project directory is given priority
+2. **Overridable**: The project can use a customized version to overwrite the global skill
 
-## 常见问题
+## FAQ
 
-### Q: Skill 安装后没有生效？
+### Q: Skill does not take effect after installation?
 
-检查以下几点：
-1. 目录名称是否正确
-2. SKILL.md 文件是否存在
-3. 文件权限是否正确
-4. 重启 IDE 试试
+Check the following points:
+1. Whether the directory name is correct
+2. Whether the SKILL.md file exists
+3. Whether the file permissions are correct
+4. Restart the IDE and try
 
-### Q: 如何知道 skill 被正确识别？
+### Q: How to know that the skill is correctly recognized?
 
-尝试在对话中询问：
+Try asking in the conversation:
 ```
-你能使用 [skill-name] 吗？
+Can you use [skill-name]?
 ```
 
-### Q: 多个 skill 冲突怎么办？
+### Q: What should I do if multiple skills conflict?
 
-- 检查 skill 的触发条件是否重叠
-- 在请求时明确指定要使用的 skill
-- 调整 skill 的 "When to Use" 部分
+- Check if the skill's trigger conditions overlap
+- Explicitly specify the skill to use when requesting
+- Adjust the "When to Use" section of the skill
 
-## 推荐的目录结构
+## Recommended directory structure
 
 ```
 ~/.cursor/
@@ -155,7 +155,7 @@ rm -rf ~/.cursor/skills/code-review-skill
 
 ---
 
-## 下一步
+## Next step
 
-- [创建你自己的 Skill](how-to-create.md)
-- [浏览 Skills 列表](../README.md#skills-列表)
+- [Create Your Own Skill](how-to-create.md)
+- [Browse the Skills List](../README.md#skills-list)

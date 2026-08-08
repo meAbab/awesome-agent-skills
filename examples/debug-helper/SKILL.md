@@ -6,81 +6,81 @@ license: CC0-1.0
 
 # Debug Helper
 
-> 帮助调试代码，分析错误信息，定位问题根源，提供修复建议。
+> Help debug the code, analyze error messages, locate the root cause of the problem, and provide repair suggestions.
 >
 > Help debug code by analyzing error messages, identifying root causes, and providing fix suggestions.
 
 ## When to Use
 
-当用户请求以下操作时使用此 skill：
-- 调试代码 / Debug code
-- 分析错误信息 / Analyze error messages
-- 修复 bug / Fix bugs
-- 理解异常原因 / Understand exception causes
-- 排查问题 / Troubleshoot issues
+Use this skill when the user requests the following operations:
+- Debug code
+- Analyze error messages
+- Fix bugs
+- Understand exception causes
+- Troubleshoot issues
 
 ## Instructions
 
-### 调试步骤 / Debugging Steps
+### Debugging Steps
 
-1. **收集信息** - 获取错误信息、堆栈跟踪、相关代码
-2. **分析错误** - 理解错误类型和消息含义
-3. **定位根源** - 找到导致问题的代码位置
-4. **提供解决方案** - 给出具体的修复建议
-5. **预防建议** - 提供避免类似问题的建议
+1. **Collect information** - Get error information, stack traces, related code
+2. **Analyze errors** - Understand the error type and message meaning
+3. **Locate the root cause** - Find the code location that causes the problem
+4. **Provide solutions** - Give specific repair suggestions
+5. **Prevention Suggestions** - Provides suggestions to avoid similar problems
 
-### 常见错误类型 / Common Error Types
+### Common Error Types
 
-| 错误类型 | 可能原因 |
+| Error Types | Possible Causes |
 |----------|----------|
-| TypeError | 类型不匹配、空值操作 |
-| ReferenceError | 未定义变量、作用域问题 |
-| SyntaxError | 语法错误、缺少括号/引号 |
-| RuntimeError | 运行时逻辑错误 |
-| NetworkError | 网络请求失败、超时 |
+| TypeError | Type mismatch, null value operation |
+| ReferenceError | Undefined variables, scope issues |
+| SyntaxError | Syntax error, missing brackets/quotes |
+| RuntimeError | Runtime logic error |
+| NetworkError | Network request failed, timed out |
 
-### 分析框架 / Analysis Framework
+### Analysis Framework
 
-对于每个错误，需要分析：
-- **What**: 发生了什么错误
-- **Where**: 错误发生在哪里
-- **Why**: 为什么会发生
-- **How**: 如何修复
+For each error, it is necessary to analyze:
+- **What**: What error occurred
+- **Where**: Where the error occurred
+- **Why**: Why does
+happen - **How**: How to fix
 
-### 输出格式 / Output Format
+### Output Format
 
-使用 `templates/debug-report.md` 模板格式化输出。
+uses the `templates/debug-report.md` template to format the output.
 
 Use the `templates/debug-report.md` template to format output.
 
 ```markdown
-## 调试分析报告 / Debug Analysis Report
+## Debug Analysis Report
 
-### 错误概述 / Error Summary
-[错误类型和简要描述]
+### Error Summary
+[Error type and brief description]
 
-### 根本原因 / Root Cause
-[详细分析]
+### Root Cause
+[Detailed analysis]
 
-### 修复方案 / Fix
-[具体代码修改]
+### Fix
+[Specific code modification]
 
-### 预防建议 / Prevention
-[如何避免类似问题]
+### Prevention
+[How to avoid similar problems]
 ```
 
 ## Examples
 
-### 输入 / Input
+### Input
 
-错误信息：
+Error message:
 ```
 TypeError: Cannot read properties of undefined (reading 'map')
     at UserList (UserList.jsx:15:23)
     at renderWithHooks (react-dom.development.js:14985:18)
 ```
 
-相关代码：
+Related codes:
 ```jsx
 function UserList({ users }) {
   return (
@@ -93,26 +93,26 @@ function UserList({ users }) {
 }
 ```
 
-### 输出 / Output
+### Output
 
-## 调试分析报告
+## Debug Analysis Report
 
-### 错误概述
+### Error Overview
 `TypeError: Cannot read properties of undefined (reading 'map')`
 
-在 `UserList` 组件第 15 行调用 `.map()` 时，`users` 变量为 `undefined`。
+When calling `.map()` on line 15 of the `UserList` component, the `users` variable is `undefined`.
 
-### 根本原因
+### Root Cause
 
-1. **直接原因**: 尝试在 `undefined` 上调用 `.map()` 方法
-2. **深层原因**:
-   - 父组件可能没有传递 `users` prop
-   - 数据获取尚未完成时组件已渲染
-   - API 返回格式与预期不符
+1. **Direct Cause**: Trying to call `.map()` method on `undefined`
+2. **Deep Cause**:
+- The parent component may not have passed the `users` prop
+- The component has been rendered when the data acquisition has not yet completed
+- The API return format is not as expected
 
-### 修复方案
+### Fixes
 
-**方案 1: 添加默认值（推荐）**
+**Scenario 1: Add default value (recommended)**
 ```jsx
 function UserList({ users = [] }) {
   return (
@@ -125,7 +125,7 @@ function UserList({ users = [] }) {
 }
 ```
 
-**方案 2: 条件渲染**
+**Option 2: Conditional rendering**
 ```jsx
 function UserList({ users }) {
   if (!users || users.length === 0) {
@@ -142,7 +142,7 @@ function UserList({ users }) {
 }
 ```
 
-**方案 3: 可选链操作符**
+**Option 3: Optional chain operator**
 ```jsx
 function UserList({ users }) {
   return (
@@ -155,21 +155,21 @@ function UserList({ users }) {
 }
 ```
 
-### 预防建议
+### Prevention recommendations
 
-1. **使用 TypeScript** - 添加类型检查
+1. **Use TypeScript** - Add type checking
    ```typescript
    interface Props {
      users: User[];
    }
    ```
 
-2. **添加 PropTypes** - 运行时类型检查
+2. **Add PropTypes** - Runtime type checking
    ```jsx
    UserList.propTypes = {
      users: PropTypes.array.isRequired
    };
    ```
 
-3. **检查数据源** - 确保父组件正确传递数据
-4. **处理加载状态** - 在数据获取期间显示加载指示器
+3. **Check data sources** - Ensure parent component passes data correctly
+4. **Handle loading status** - Show loading indicator during data retrieval

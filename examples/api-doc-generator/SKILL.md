@@ -6,73 +6,73 @@ license: CC0-1.0
 
 # API Doc Generator
 
-> 根据代码生成 API 文档，支持 REST API、GraphQL 及多种文档格式。
+> Generate API documents based on code, supporting REST API, GraphQL and multiple document formats.
 >
 > Generate API documentation from source code, supporting REST APIs, GraphQL, and various documentation formats.
 
 ## When to Use
 
-当用户请求以下操作时使用此 skill：
-- 生成 API 文档 / Generate API documentation
-- 创建接口文档 / Create interface documentation
-- 编写 API 说明 / Write API descriptions
-- 生成 OpenAPI/Swagger 规范 / Generate OpenAPI/Swagger specs
+Use this skill when the user requests the following operations:
+- Generate API documentation
+- Create interface documentation
+- Write API descriptions
+- Generate OpenAPI/Swagger specs
 
 ## Instructions
 
-### 分析步骤 / Analysis Steps
+### Analysis Steps
 
-1. **识别 API 类型** - REST、GraphQL、RPC 等
-2. **提取端点信息** - URL、方法、参数
-3. **分析数据结构** - 请求/响应格式
-4. **识别认证方式** - API Key、OAuth、JWT 等
-5. **生成文档** - 按照标准格式输出
+1. **Identify API type** - REST, GraphQL, RPC, etc.
+2. **Extract endpoint information** - URL, method, parameters
+3. **Analyze data structure** - Request/response format
+4. **Identify authentication method** - API Key, OAuth, JWT, etc.
+5. **Generate documentation** - Output in standard format
 
-### 文档内容 / Documentation Content
+### Documentation Content
 
-每个 API 端点应包含：
-- **端点路径** - URL 和 HTTP 方法
-- **描述** - 功能说明
-- **参数** - 路径参数、查询参数、请求体
-- **响应** - 成功和错误响应示例
-- **认证** - 认证要求
+Each API endpoint should contain:
+- **Endpoint path** - URL and HTTP method
+- **Description** - Function description
+- **Parameters** - Path parameters, query parameters, request body
+- **Response** - Success and error response examples
+- **Certification** - Certification requirements
 
-### 输出格式 / Output Formats
+### Output Formats
 
-支持以下文档格式：
-- Markdown（默认）- 使用 `templates/api-doc.md` 模板
+The following document formats are supported:
+- Markdown (default) - using `templates/api-doc.md` template
 - OpenAPI 3.0 YAML
 - API Blueprint
 
 Use `templates/api-doc.md` for Markdown output format.
 
-### 标准模板 / Standard Template
+### Standard Template
 
 ```markdown
-## API 文档 / API Documentation
+## API Documentation
 
-### 端点概览 / Endpoint Overview
+### Endpoint Overview
 
-| 方法 | 路径 | 描述 |
+| Method | Path | Description |
 |------|------|------|
-| GET | /api/resource | 获取资源列表 |
+| GET | /api/resource | Get resource list |
 
-### 详细说明 / Details
+### Details
 
-#### [方法] /path
+#### [Method] /path
 
-**描述**: ...
+**Description**: ...
 
-**请求参数**:
-| 参数 | 类型 | 必需 | 描述 |
+**Request Parameters**:
+| Parameters | Type | Required | Description |
 |------|------|------|------|
 
-**请求示例**:
+**Request Example**:
 ```json
 {}
 ```
 
-**响应示例**:
+**Response Example**:
 ```json
 {}
 ```
@@ -80,7 +80,7 @@ Use `templates/api-doc.md` for Markdown output format.
 
 ## Examples
 
-### 输入 / Input
+### Input
 
 ```python
 from fastapi import FastAPI, HTTPException
@@ -106,29 +106,29 @@ async def create_user(user: User) -> User:
     return user
 ```
 
-### 输出 / Output
+### Output
 
-## API 文档
+## API Documentation
 
-### 端点概览
+### Endpoint Overview
 
-| 方法 | 路径 | 描述 |
+| Method | Path | Description |
 |------|------|------|
-| GET | /users/{user_id} | 根据 ID 获取用户信息 |
-| POST | /users | 创建新用户 |
+| GET | /users/{user_id} | Get user information based on ID |
+| POST | /users | Create new user |
 
 ---
 
 ### GET /users/{user_id}
 
-**描述**: 根据用户 ID 获取用户信息
+**Description**: Get user information based on user ID
 
-**路径参数**:
-| 参数 | 类型 | 必需 | 描述 |
+**Path parameters**:
+| Parameters | Type | Required | Description |
 |------|------|------|------|
-| user_id | integer | ✅ | 用户唯一标识符 |
+| user_id | integer | ✅ | User unique identifier |
 
-**响应 200 - 成功**:
+**Response 200 - Success**:
 ```json
 {
   "id": 1,
@@ -137,7 +137,7 @@ async def create_user(user: User) -> User:
 }
 ```
 
-**响应 404 - 未找到**:
+**Response 404 - Not Found**:
 ```json
 {
   "detail": "User not found"
@@ -148,16 +148,16 @@ async def create_user(user: User) -> User:
 
 ### POST /users
 
-**描述**: 创建新用户
+**Description**: Create new user
 
-**请求体**:
-| 字段 | 类型 | 必需 | 描述 |
+**Request body**:
+| Field | Type | Required | Description |
 |------|------|------|------|
-| id | integer | ✅ | 用户 ID |
-| name | string | ✅ | 用户姓名 |
-| email | string | ✅ | 用户邮箱 |
+| id | integer | ✅ | user ID |
+| name | string | ✅ | user name |
+| email | string | ✅ | User email |
 
-**请求示例**:
+**Request Example**:
 ```json
 {
   "id": 1,
@@ -166,7 +166,7 @@ async def create_user(user: User) -> User:
 }
 ```
 
-**响应 200 - 成功**:
+**Response 200 - Success**:
 ```json
 {
   "id": 1,

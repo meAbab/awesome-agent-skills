@@ -44,7 +44,7 @@ Each entry should use this shape:
   "category": "development-tools",
   "description": {
     "en": "Smart code review example skill.",
-    "zh": "智能代码审查示例 Skill。"
+    "zh": "Smart code review example Skill."
   },
   "links": {
     "repo": "https://github.com/JackyST0/awesome-agent-skills",
@@ -133,7 +133,7 @@ Bilingual object:
 ```json
 {
   "en": "English description",
-  "zh": "中文描述"
+  "zh": "Chinese description"
 }
 ```
 

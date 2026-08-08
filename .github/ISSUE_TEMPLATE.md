@@ -1,14 +1,14 @@
-## 问题类型 / Issue Type
+## Issue Type
 
-- [ ] 失效链接 / Broken link
-- [ ] 错误描述 / Incorrect description
-- [ ] 建议新增 / Suggestion
-- [ ] 其他 / Other
+- [ ] Broken link
+- [ ] Incorrect description
+- [ ] Suggestion
+- [ ] Other
 
-## 描述 / Description
+## Description
 
-<!-- 请详细描述问题 / Please describe the issue in detail -->
+<!-- Please describe the issue in detail -->
 
-## 相关链接 / Related Links
+## Related Links
 
-<!-- 如果适用 / If applicable -->
+<!-- If applicable -->

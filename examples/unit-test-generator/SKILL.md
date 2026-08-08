@@ -6,31 +6,31 @@ license: CC0-1.0
 
 # Unit Test Generator
 
-> 根据源代码自动生成单元测试，支持多种语言和测试框架。
+> Automatically generate unit tests based on source code, supporting multiple languages ​​and testing frameworks.
 >
 > Automatically generate unit tests based on source code, supporting multiple languages and testing frameworks.
 
 ## When to Use
 
-当用户请求以下操作时使用此 skill：
-- 生成单元测试 / Generate unit tests
-- 为函数/类编写测试 / Write tests for functions/classes
-- 创建测试用例 / Create test cases
-- 提高代码覆盖率 / Improve code coverage
+Use this skill when the user requests the following actions:
+- Generate unit tests
+- Write tests for functions/classes
+- Create test cases
+- Improve code coverage
 
 ## Instructions
 
-### 分析步骤 / Analysis Steps
+### Analysis Steps
 
-1. **识别代码** - 确定编程语言和代码结构
-2. **分析功能** - 理解函数/方法的输入、输出和行为
-3. **确定边界** - 识别边界条件和边缘情况
-4. **选择框架** - 根据语言选择合适的测试框架
-5. **生成测试** - 编写全面的测试用例
+1. **Identify Code** - Determine the programming language and code structure
+2. **Analyzing Functions** - Understand the input, output and behavior of functions/methods
+3. **Identify Boundaries** - Identify boundary conditions and edge cases
+4. **Select a framework** - Choose an appropriate testing framework based on the language
+5. **Generate Tests** - Write comprehensive test cases
 
-### 支持的语言和框架 / Supported Languages
+### Supported Languages and Frameworks
 
-| 语言 | 测试框架 |
+| Language | Testing Framework |
 |------|----------|
 | Python | pytest, unittest |
 | JavaScript/TypeScript | Jest, Mocha, Vitest |
@@ -38,36 +38,36 @@ license: CC0-1.0
 | Go | testing (built-in) |
 | Rust | cargo test (built-in) |
 
-### 测试类型 / Test Types
+### Test Types
 
-- **正常路径测试** - 验证预期行为
-- **边界条件测试** - 测试边界值
-- **异常处理测试** - 验证错误处理
-- **空值/空输入测试** - 处理空值情况
+- **Normal Path Test** - Verify expected behavior
+- **Boundary Condition Test** - Test boundary values
+- **Exception Handling Test** - Verify error handling
+- **null value/null input test** - handles null value cases
 
-### 输出格式 / Output Format
+### Output Format
 
-使用 `templates/test-report.md` 模板格式化输出。
+Use the `templates/test-report.md` template to format the output.
 
 Use the `templates/test-report.md` template to format output.
 
 ```markdown
-## 单元测试生成报告 / Unit Test Generation Report
+## Unit Test Generation Report
 
-### 分析概述 / Analysis Summary
-[代码分析总结]
+### Analysis Summary
+[Code Analysis Summary]
 
-### 生成的测试 / Generated Tests
-[测试代码]
+### Generated Tests
+[Test code]
 
-### 测试覆盖说明 / Coverage Notes
-- 覆盖的场景
-- 建议补充的测试
+### Coverage Notes
+- Covered scenarios
+- Suggested additional tests
 ```
 
 ## Examples
 
-### 输入 / Input
+### Input
 
 ```python
 def divide(a: float, b: float) -> float:
@@ -76,14 +76,14 @@ def divide(a: float, b: float) -> float:
     return a / b
 ```
 
-### 输出 / Output
+### Output
 
-## 单元测试生成报告
+## Unit test generation report
 
-### 分析概述
-`divide` 函数执行除法运算，包含除零检查。需要测试正常除法、除零异常、边界值等情况。
+### Analysis overview
+`divide` The function performs a division operation, including a divide-by-zero check. It is necessary to test normal division, division-by-zero exceptions, boundary values, etc.
 
-### 生成的测试
+### Generated test
 
 ```python
 import pytest
@@ -117,9 +117,9 @@ class TestDivide:
         assert divide(1, 3) == pytest.approx(0.333333, rel=1e-5)
 ```
 
-### 测试覆盖说明
-- ✅ 正常正数除法
-- ✅ 负数除法
-- ✅ 除零异常
-- ✅ 分子为零
-- ✅ 浮点精度
+### Test coverage description
+- ✅ Normal division of positive numbers
+- ✅ Division of negative numbers
+- ✅ Division by zero exception
+- ✅ Numerator is zero
+- ✅ Floating point precision

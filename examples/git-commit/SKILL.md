@@ -6,23 +6,23 @@ license: CC0-1.0
 
 # Git Commit
 
-> Git 提交信息生成技能，根据代码变更自动生成规范的 commit message。
+> Git commit message generation skills, automatically generate standardized commit messages based on code changes.
 >
 > Git commit message generator that creates conventional commit messages based on code changes.
 
 ## When to Use
 
-当用户请求以下操作时使用此 skill：
-- 生成 commit message / Generate commit message
-- 写提交信息 / Write commit message
-- 提交代码 / Commit code
-- 描述代码变更 / Describe code changes
+Use this skill when the user requests the following actions:
+- Generate commit message
+- Write commit message
+- Commit code
+- Describe code changes
 
 ## Instructions
 
-### 提交信息格式 / Commit Message Format
+### Commit Message Format
 
-遵循 [Conventional Commits](https://www.conventionalcommits.org/) 规范：
+Follow the [Conventional Commits](https://www.conventionalcommits.org/) specification:
 
 ```
 <type>(<scope>): <subject>
@@ -32,38 +32,38 @@ license: CC0-1.0
 <footer>
 ```
 
-### 类型 / Types
+### Types
 
-| Type | 说明 / Description |
+| Type | Description |
 |------|---------------------|
-| feat | 新功能 / New feature |
-| fix | 修复 bug / Bug fix |
-| docs | 文档变更 / Documentation |
-| style | 格式调整 / Formatting |
-| refactor | 重构 / Refactoring |
-| perf | 性能优化 / Performance |
-| test | 测试相关 / Tests |
-| chore | 构建/工具 / Build/tools |
+| feat | New feature |
+| fix | Bug fix |
+| docs | Documentation |
+| style | Formatting |
+| refactor | Refactoring |
+| perf | Performance |
+| test | Tests |
+| chore | Build/tools |
 
-### 生成步骤 / Generation Steps
+### Generation Steps
 
-1. **分析变更** - 查看 `git diff` 或 `git status`
-2. **确定类型** - 根据变更内容选择合适的 type
-3. **提取范围** - 确定影响的模块或组件
-4. **撰写主题** - 用简洁的语言描述变更（50 字符内）
-5. **添加正文** - 如需要，详细说明变更原因和影响
+1. **Analyze Changes** - View `git diff` or `git status`
+2. **Determine type** - Select the appropriate type
+based on the change content 3. **Extraction scope** - Determine the affected modules or components
+4. **Write topic** - Describe the change in concise language (within 50 characters)
+5. **Add text** - If necessary, detail the reason and impact of the change
 
-### 规则 / Rules
+### Rules
 
-- 主题行不超过 50 个字符
-- 使用祈使句（如 "add" 而非 "added"）
-- 主题行首字母小写
-- 主题行结尾不加句号
-- 正文每行不超过 72 个字符
+- Subject line should not exceed 50 characters
+- Use imperative sentences (such as "add" instead of "added")
+- Start the subject line in lowercase
+- Do not end the subject line with a period
+- The text should not exceed 72 characters per line
 
 ## Examples
 
-### 示例 1：新功能
+### Example 1: New feature
 
 ```
 feat(auth): add OAuth2 login support
@@ -73,7 +73,7 @@ feat(auth): add OAuth2 login support
 - Update login page with social login buttons
 ```
 
-### 示例 2：修复 Bug
+### Example 2: Bug fix
 
 ```
 fix(api): resolve null pointer in user service
@@ -84,7 +84,7 @@ user doesn't exist, causing a NullPointerException.
 Closes #123
 ```
 
-### 示例 3：文档更新
+### Example 3: Documentation update
 
 ```
 docs(readme): update installation instructions
@@ -92,7 +92,7 @@ docs(readme): update installation instructions
 Add Docker setup guide and clarify environment variables.
 ```
 
-### 示例 4：重构
+### Example 4: Refactoring
 
 ```
 refactor(database): migrate from callbacks to async/await

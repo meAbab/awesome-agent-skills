@@ -10,6 +10,7 @@
       box-sizing: border-box;
     }
 
+
     body {
       width: 1280px;
       height: 640px;
@@ -21,6 +22,7 @@
       overflow: hidden;
       position: relative;
     }
+
 
     /* Grid pattern */
     .grid {
@@ -35,6 +37,7 @@
       background-size: 50px 50px;
     }
 
+
     /* Floating nodes */
     .nodes {
       position: absolute;
@@ -44,12 +47,14 @@
       bottom: 0;
     }
 
+
     .node {
       position: absolute;
       border-radius: 50%;
       background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
       opacity: 0.5;
     }
+
 
     .node:nth-child(1) { width: 20px; height: 20px; top: 10%; left: 8%; }
     .node:nth-child(2) { width: 30px; height: 30px; top: 25%; left: 15%; }
@@ -60,11 +65,13 @@
     .node:nth-child(7) { width: 15px; height: 15px; top: 70%; right: 15%; }
     .node:nth-child(8) { width: 25px; height: 25px; top: 85%; right: 5%; }
 
+
     .content {
       text-align: center;
       z-index: 10;
       position: relative;
     }
+
 
     .logo {
       width: 100px;
@@ -78,6 +85,7 @@
       font-size: 50px;
     }
 
+
     h1 {
       font-size: 72px;
       font-weight: 800;
@@ -88,17 +96,20 @@
       margin-bottom: 20px;
     }
 
+
     .subtitle {
       font-size: 28px;
       color: #a0a0a0;
       margin-bottom: 40px;
     }
 
+
     .badges {
       display: flex;
       gap: 15px;
       justify-content: center;
     }
+
 
     .badge {
       padding: 12px 24px;
@@ -108,10 +119,12 @@
       color: white;
     }
 
+
     .badge-cursor { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
     .badge-claude { background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%); }
     .badge-copilot { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
     .badge-more { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); }
+
 
     .stats {
       position: absolute;
@@ -125,11 +138,13 @@
       font-size: 16px;
     }
 
+
     .stat {
       display: flex;
       align-items: center;
       gap: 8px;
     }
+
 
     .stat-icon {
       font-size: 20px;
@@ -138,6 +153,7 @@
 </head>
 <body>
   <div class="grid"></div>
+
 
   <div class="nodes">
     <div class="node"></div>
@@ -149,6 +165,7 @@
     <div class="node"></div>
     <div class="node"></div>
   </div>
+
 
   <div class="content">
     <div class="logo">🤖</div>
@@ -162,6 +179,7 @@
     </div>
   </div>
 
+
   <div class="stats">
     <div class="stat">
       <span class="stat-icon">📦</span>
@@ -169,7 +187,7 @@
     </div>
     <div class="stat">
       <span class="stat-icon">🌍</span>
-      <span>中英双语</span>
+      <span>Bilingual Chinese and English</span>
     </div>
     <div class="stat">
       <span class="stat-icon">🚀</span>

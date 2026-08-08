@@ -11,7 +11,7 @@
       "category": "development-tools",
       "description": {
         "en": "Smart code review example skill.",
-        "zh": "智能代码审查示例 Skill。"
+        "zh": "Smart code review sample Skill."
       },
       "links": {
         "repo": "https://github.com/JackyST0/awesome-agent-skills",
@@ -62,7 +62,7 @@
       "category": "development-tools",
       "description": {
         "en": "Git commit message generator example skill.",
-        "zh": "Git 提交信息生成示例 Skill。"
+        "zh": "Git commit information generation sample Skill."
       },
       "links": {
         "repo": "https://github.com/JackyST0/awesome-agent-skills",
@@ -113,7 +113,7 @@
       "category": "official-resources",
       "description": {
         "en": "Official Anthropic Agent Skills repository.",
-        "zh": "Anthropic 官方 Agent Skills 仓库。"
+        "zh": "Anthropic official Agent Skills repository."
       },
       "links": {
         "repo": "https://github.com/anthropics/skills"
@@ -158,7 +158,7 @@
       "category": "skills-collections",
       "description": {
         "en": "Extremely fast AI skills manager written in Rust.",
-        "zh": "用 Rust 编写的极速 AI 技能管理器。"
+        "zh": "Extremely fast AI written in Rust Skills Manager. "
       },
       "links": {
         "repo": "https://github.com/pivoshenko/kasetto"
@@ -201,7 +201,7 @@
       "category": "official-resources",
       "description": {
         "en": "OpenClaw's public skills registry for discovering and sharing skills.",
-        "zh": "OpenClaw 官方 Skills 注册中心。"
+        "zh": "OpenClaw Official Skills Registration Center."
       },
       "links": {
         "docs": "https://docs.openclaw.ai/skills"
